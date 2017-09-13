@@ -1,0 +1,15 @@
+{
+    "name": "aios/users",
+    "description": "",
+    "authors": [
+        {
+            "name": "Dave Aios",
+            "email": "aioslike@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Users\\": ""
+        }
+    }
+}

@@ -1,0 +1,57 @@
+version: "2"
+
+services:
+  data:
+    image: busybox
+    container_name: "laravel_data"
+    volumes:
+      - /data
+      - /var/lib/mysql
+
+  redis:
+    image: redis:3.0.7
+    container_name: "laravel_redis"
+    ports:
+      - "6379:6379"
+    volumes_from:
+      - data
+
+  mysql:
+    image: mysql
+    container_name: "laravel_mysql"
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./docker/mysql/.env
+    volumes:
+      - ./docker/mysql/newdb.sql:/docker-entrypoint-initdb.d/newdb.sql
+    volumes_from:
+      - data
+
+  front:
+    image: abiosoft/caddy
+    container_name: "laravel_caddy"
+    environment:
+      - CADDYPATH=/etc/caddycerts
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/Caddyfile
+      - ./docker/caddy/caddyssl:/etc/caddycerts
+    depends_on:
+      - app
+    volumes_from:
+      - app
+
+  app:
+    image: laravel_skeleton:build
+    build: .
+    container_name: "laravel_app"
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+      - redis
+    command: /usr/local/sbin/php-fpm --allow-to-run-as-root
+
