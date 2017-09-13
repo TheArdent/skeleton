@@ -5,10 +5,11 @@ namespace Modules\Users\Models;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use LaratrustUserTrait,Notifiable;
 
     /**
      * The database table used by the model.

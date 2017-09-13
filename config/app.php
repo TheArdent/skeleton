@@ -184,6 +184,12 @@ return [
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+
+        /*
+         * Laratrust Service Provider
+         */
+        Laratrust\LaratrustServiceProvider::class,
+
     ],
 
     /*
@@ -234,6 +240,8 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Module'       => Nwidart\Modules\Facades\Module::class,
         'Image'        => Intervention\Image\Facades\Image::class,
+
+        'Laratrust'   => Laratrust\LaratrustFacade::class,
     ],
 
 ];
