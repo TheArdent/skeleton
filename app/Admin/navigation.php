@@ -36,7 +36,15 @@ return [
 	[
 		'title' => 'Content',
 		'pages' => [
-			\Modules\Users\Models\User::class,
+			(new Page(Modules\Users\Models\User::class))
+				->setPriority(100)
+				->setIcon('fa fa-user'),
+			(new Page(Modules\Users\Models\Role::class))
+				->setPriority(200)
+				->setIcon('fa fa-users'),
+			(new Page(Modules\Users\Models\Permission::class))
+				->setPriority(300)
+				->setIcon('fa fa-user-times'),
 		]
 	]
 	// Examples
