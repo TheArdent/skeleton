@@ -2,8 +2,6 @@
 
 namespace Modules\Users\Http\Controllers;
 
-use Illuminate\Contracts\Support\MessageProvider;
-use LaraComponents\Centrifuge\Centrifuge;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -13,20 +11,9 @@ class HomeController extends Controller
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-//	public function getHomePage()
-//	{
-//		return view('users::edit');
-//	}
-	public function getHomePage(Centrifuge $centrifuge)
+	public function getHomePage()
 	{
-		$centrifuge->publish('channel', [
-			'foo' => 'bar'
-		]);
-
-		$token = $centrifuge->generateToken('user id', 'timestamp', 'info');
-
-		$apiSign = $centrifuge->generateApiSign('data');
-		dd($token,$apiSign);
+		return view('users::edit');
 	}
 
 	/**
