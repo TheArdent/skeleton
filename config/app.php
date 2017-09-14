@@ -173,8 +173,6 @@ return [
          */
         SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 
-
-        LaraComponents\Centrifuge\CentrifugeServiceProvider::class,
         /*
          * Application Service Providers...
          */

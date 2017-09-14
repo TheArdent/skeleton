@@ -8,7 +8,6 @@
         "php": ">=7.0",
         "barryvdh/laravel-ide-helper": "^2.4",
         "intervention/image": "^2.3",
-        "laracomponents/centrifuge-broadcaster": "^1.0",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/tinker": "~1.0",
