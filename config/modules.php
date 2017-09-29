@@ -30,7 +30,7 @@ return [
             'routes'          => 'routes/web.php',
             'views/index'     => 'resources/views/index.blade.php',
             'views/master'    => 'resources/views/layouts/master.blade.php',
-            'scaffold/config' => 'config/config.php',
+            'scaffold/config' => 'Config/config.php',
             'composer'        => 'composer.json',
         ],
         'replacements' => [
