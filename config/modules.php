@@ -98,7 +98,7 @@ return [
             'event'         => 'Events',
             'listener'      => 'Listeners',
             'migration'     => 'Database/Migrations',
-            'model'         => 'Models',
+            'model'         => 'Entities',
             'repository'    => 'Repositories',
             'seeder'        => 'Database/Seeders',
             'controller'    => 'Http/Controllers',

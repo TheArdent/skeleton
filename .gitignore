@@ -1,7 +1,5 @@
 node_modules
-public/storage
-public/packages/
-public/vendor/
+
 # ------------------ Sitemaps -------------------
 sitemap.xml
 public/sitemaps
@@ -30,15 +28,6 @@ version.json
 ehthumbs.db
 Thumbs.db
 
-# CSS/JS Builds
-public/css/*
-public/js/*
-public/fonts/*
-
-public/packages
-public/vendor
-
-public/static
 storage
 
 # Sitemap
