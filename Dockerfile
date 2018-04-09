@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 WORKDIR /app
 
@@ -27,7 +27,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
             mbstring \
             zip \
             opcache \
-            pdo \
             pdo_mysql \
             gd \
             xmlrpc \
@@ -35,16 +34,11 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
             intl \
             mysqli \
             bz2 \
-            json \
             exif
 
 COPY ./docker/php/fpm_www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/php/docker-php-ext-imagick.ini /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
 COPY ./docker/php/php.ini /usr/local/etc/php/
-
-# PHP 7.0 Compiled Modules (see commented out commans at the end of this file)
-# XDebug
-COPY ./docker/php/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20151012/
 
 
 COPY . /app
@@ -70,7 +64,3 @@ RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filenam
 RUN curl -L -o /tmp/phpunit.phar  https://phar.phpunit.de/phpunit.phar \
   && mv /tmp/phpunit.phar /usr/local/bin/phpunit \
   && chmod +x /usr/local/bin/phpunit
-
-RUN composer install && composer update
-
-
