@@ -23,7 +23,7 @@ class LaratrustSeeder extends Seeder
 
         foreach ($config as $key => $modules) {
             // Create a new role
-            $role = \Modules\Users\Models\Role::create([
+            $role = \Modules\Users\Entities\Role::create([
                 'name' => $key,
                 'display_name' => ucwords(str_replace("_", " ", $key)),
                 'description' => ucwords(str_replace("_", " ", $key))
@@ -38,7 +38,7 @@ class LaratrustSeeder extends Seeder
                 foreach ($permissions as $p => $perm) {
                     $permissionValue = $mapPermission->get($perm);
 
-                    $permission = \Modules\Users\Models\Permission::firstOrCreate([
+                    $permission = \Modules\Users\Entities\Permission::firstOrCreate([
                         'name' => $permissionValue . '-' . $module,
                         'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                         'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
@@ -56,7 +56,7 @@ class LaratrustSeeder extends Seeder
 
             $this->command->info("Creating '{$key}' user");
             // Create default user for each role
-            $user = \Modules\Users\Models\User::create([
+            $user = \Modules\Users\Entities\User::create([
                 'name' => ucwords(str_replace("_", " ", $key)),
                 'email' => $key.'@app.com',
                 'password' => bcrypt('password')
@@ -70,7 +70,7 @@ class LaratrustSeeder extends Seeder
                 foreach ($modules as $module => $value) {
                     $permissions = explode(',', $value);
                     // Create default user for each permission set
-                    $user = \Modules\Users\Models\User::create([
+                    $user = \Modules\Users\Entities\User::create([
                         'name' => ucwords(str_replace("_", " ", $key)),
                         'email' => $key.'@app.com',
                         'password' => bcrypt('password'),
@@ -79,7 +79,7 @@ class LaratrustSeeder extends Seeder
                     foreach ($permissions as $p => $perm) {
                         $permissionValue = $mapPermission->get($perm);
 
-                        $permission = \Modules\Users\Models\Permission::firstOrCreate([
+                        $permission = \Modules\Users\Entities\Permission::firstOrCreate([
                             'name' => $permissionValue . '-' . $module,
                             'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                             'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
@@ -108,9 +108,9 @@ class LaratrustSeeder extends Seeder
         DB::table('permission_role')->truncate();
         DB::table('permission_user')->truncate();
         DB::table('role_user')->truncate();
-        \Modules\Users\Models\User::truncate();
-        \Modules\Users\Models\Role::truncate();
-        \Modules\Users\Models\Permission::truncate();
+        \Modules\Users\Entities\User::truncate();
+        \Modules\Users\Entities\Role::truncate();
+        \Modules\Users\Entities\Permission::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

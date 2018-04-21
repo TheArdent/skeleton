@@ -13,7 +13,7 @@ use SleepingOwl\Admin\Section;
 /**
  * Class Users
  *
- * @property \Modules\Users\Models\User $model
+ * @property \Modules\Users\Entities\User $model
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */

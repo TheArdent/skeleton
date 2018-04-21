@@ -13,7 +13,7 @@ use SleepingOwl\Admin\Section;
 /**
  * Class Permission
  *
- * @property \Modules\Users\Models\Permission $model
+ * @property \Modules\Users\Entities\Permission $model
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */

@@ -36,13 +36,13 @@ return [
 	[
 		'title' => 'Content',
 		'pages' => [
-			(new Page(Modules\Users\Models\User::class))
+			(new Page(Modules\Users\Entities\User::class))
 				->setPriority(100)
 				->setIcon('fa fa-user'),
-			(new Page(Modules\Users\Models\Role::class))
+			(new Page(Modules\Users\Entities\Role::class))
 				->setPriority(200)
 				->setIcon('fa fa-users'),
-			(new Page(Modules\Users\Models\Permission::class))
+			(new Page(Modules\Users\Entities\Permission::class))
 				->setPriority(300)
 				->setIcon('fa fa-user-times'),
 		]

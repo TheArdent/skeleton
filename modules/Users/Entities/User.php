@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Users\Models;
+namespace Modules\Users\Entities;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;

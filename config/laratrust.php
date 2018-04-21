@@ -44,7 +44,7 @@ return [
     |
     */
     'user_models' => [
-        'users' => 'Modules\Users\Models\User',
+        'users' => 'Modules\Users\Entities\User',
     ],
 
     /*
@@ -61,12 +61,12 @@ return [
         /**
          * Role model
          */
-        'role' => 'Modules\Users\Models\Role',
+        'role' => 'Modules\Users\Entities\Role',
 
         /**
          * Permission model
          */
-        'permission' => 'Modules\Users\Models\Permission',
+        'permission' => 'Modules\Users\Entities\Permission',
 
         /**
          * Team model

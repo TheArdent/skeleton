@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Modules\Users\Models\Permission;
-use Modules\Users\Models\Role;
-use Modules\Users\Models\User;
+use Modules\Users\Entities\Permission;
+use Modules\Users\Entities\Role;
+use Modules\Users\Entities\User;
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
 class AdminSectionsServiceProvider extends ServiceProvider
