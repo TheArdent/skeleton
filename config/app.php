@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 
         /**
@@ -245,6 +246,7 @@ return [
         'Laratrust'   => Laratrust\LaratrustFacade::class,
 
         'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
