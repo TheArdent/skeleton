@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+
 
         /**
          * SleepingOwl Service Provider
@@ -241,6 +243,9 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
 
         'Laratrust'   => Laratrust\LaratrustFacade::class,
+
+        'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
+
     ],
 
 ];
