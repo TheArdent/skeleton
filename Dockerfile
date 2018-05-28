@@ -2,7 +2,7 @@ FROM php:7.1-fpm
 
 WORKDIR /app
 
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+RUN apt-get update && apt-get install -y gnupg apt-utils && \ 
     apt-get install -y nodejs && \
     apt-get install -y git && \
     apt-get install -y libmcrypt-dev \
