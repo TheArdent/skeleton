@@ -20,8 +20,6 @@ class BossCommand extends Command
      */
     protected $description = 'Like a boss. add --frontend for building frontend';
 
-    protected $passport_table = 'oauth_clients';
-
     /**
      * Create a new command instance.
      *
@@ -70,12 +68,17 @@ class BossCommand extends Command
 
     protected function isPassportExist()
     {
-        return \Schema::hasTable($this->passport_table);
+
+        $file = base_path('composer.lock');
+        $packages = json_decode(file_get_contents($file), true)['packages'];
+
+        return in_array('laravel/passport', $packages);
+
     }
 
     protected function setPassportKeys()
     {
-        $client = \DB::table($this->passport_table)->first();
+        $client = \DB::table('oauth_clients')->first();
 
         if($client) {
             $this->setEnvValue('MIX_AUTH_CLIENT_ID', $client->id);
