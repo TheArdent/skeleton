@@ -17,16 +17,13 @@ services:
       - data
 
   mysql:
-    image: mysql
+    image: mysql:5.6
     container_name: "laravel_mysql"
     ports:
       - "3306:3306"
-    env_file:
-      - ./docker/mysql/.env
-    volumes:
-      - ./docker/mysql/newdb.sql:/docker-entrypoint-initdb.d/newdb.sql
-    volumes_from:
-      - data
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_DATABASE=laravel"
 
   front:
     image: abiosoft/caddy

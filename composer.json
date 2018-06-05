@@ -13,9 +13,11 @@
         "laravelrus/sleepingowl": "4.*@dev",
         "nwidart/laravel-modules": "^3.0",
         "predis/predis": "^1.1",
-        "santigarcor/laratrust": "4.0.*"
+        "santigarcor/laratrust": "4.0.*",
+        "sentry/sentry-laravel": "^0.9.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
