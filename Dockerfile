@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y gnupg apt-utils && \
         libicu-dev \
         libjpeg62-turbo-dev \
         libfreetype6-dev \
-        libpng12-dev \
         libbz2-dev \
         libmagickwand-dev && \
     rm -rf /var/lib/apt/lists/*
