@@ -1,39 +1,4 @@
-FROM php:7.1-fpm
-
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y gnupg apt-utils && \ 
-    apt-get install -y nodejs && \
-    apt-get install -y git && \
-    apt-get install -y libmcrypt-dev \
-        libpq-dev \
-        libpng-dev \
-        libxml2-dev \
-        libxslt-dev \
-        libicu-dev \
-        libjpeg62-turbo-dev \
-        libfreetype6-dev \
-        libbz2-dev \
-        libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/  && \
-        (yes | pecl install imagick) && \
-        docker-php-ext-install \
-            mcrypt \
-            bcmath \
-            mbstring \
-            zip \
-            opcache \
-            pdo_mysql \
-            gd \
-            xmlrpc \
-            opcache \
-            intl \
-            mysqli \
-            bz2 \
-            exif
+FROM theparticles/libs:7.1
 
 COPY ./docker/php/fpm_www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/php/docker-php-ext-imagick.ini /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
