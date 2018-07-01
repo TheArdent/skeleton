@@ -1,20 +1,13 @@
-version: "2"
+version: "3"
 
 services:
-  data:
-    image: busybox
-    container_name: "laravel_data"
-    volumes:
-      - /data
-      - /var/lib/mysql
-
   redis:
-    image: redis:3.0.7
+    image: redis
     container_name: "laravel_redis"
     ports:
       - "6379:6379"
-    volumes_from:
-      - data
+    volumes:
+      - redis_data:/data
 
   mysql:
     image: mysql:5.6
@@ -24,7 +17,9 @@ services:
     environment:
       - "MYSQL_ROOT_PASSWORD=secret"
       - "MYSQL_DATABASE=laravel"
-
+    volumes:
+      - db_data:/var/lib/mysql
+      
   front:
     image: abiosoft/caddy
     container_name: "laravel_caddy"
@@ -38,8 +33,6 @@ services:
       - ./docker/caddy/caddyssl:/etc/caddycerts
     depends_on:
       - app
-    volumes_from:
-      - app
 
   app:
     image: laravel_skeleton:build
@@ -52,3 +45,7 @@ services:
       - mysql
       - redis
     command: /usr/local/sbin/php-fpm --allow-to-run-as-root
+
+volumes:
+  redis_data:
+  db_data:  
