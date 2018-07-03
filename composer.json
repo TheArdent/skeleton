@@ -14,7 +14,8 @@
         "nwidart/laravel-modules": "^3.0",
         "predis/predis": "^1.1",
         "santigarcor/laratrust": "4.0.*",
-        "sentry/sentry-laravel": "^0.9.0"
+        "sentry/sentry-laravel": "^0.9.0",
+        "spatie/laravel-http-logger": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

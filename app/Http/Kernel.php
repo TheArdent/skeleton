@@ -59,8 +59,10 @@ class Kernel extends HttpKernel
 
         'admin'      => \Modules\Users\Http\Middleware\CheckAdmin::class,
 
-        'role' => \Laratrust\Middleware\LaratrustRole::class,
+        'role'       => \Laratrust\Middleware\LaratrustRole::class,
         'permission' => \Laratrust\Middleware\LaratrustPermission::class,
-        'ability' => \Laratrust\Middleware\LaratrustAbility::class,
+        'ability'    => \Laratrust\Middleware\LaratrustAbility::class,
+
+        'logging'    => \Spatie\HttpLogger\Middlewares\HttpLogger::class,
     ];
 }
