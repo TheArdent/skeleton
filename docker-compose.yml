@@ -31,6 +31,7 @@ services:
     volumes:
       - ./docker/caddy/Caddyfile:/etc/Caddyfile
       - ./docker/caddy/caddyssl:/etc/caddycerts
+      - .:/app
     depends_on:
       - app
 
